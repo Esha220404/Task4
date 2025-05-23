@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistent To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>My Tasks</h1>
+            <div class="task-stats">
+                <span id="activeCount">0</span> active • 
+                <span id="completedCount">0</span> completed • 
+                <span id="totalCount">0</span> total
+            </div>
+        </header>
+
+        <div class="add-task-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="newTaskInput" 
+                    placeholder="Add a new task..."
+                    class="task-input"
+                >
+                <button id="addTaskBtn" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                    Add
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="tasks-container">
+            <div id="tasksList" class="tasks-list"></div>
+            <div id="emptyState" class="empty-state">
+                <i class="fas fa-calendar-alt"></i>
+                <p id="emptyMessage">No tasks yet. Add one above!</p>
+            </div>
+        </div>
+
+        <div class="action-buttons" id="actionButtons" style="display: none;">
+            <button id="clearCompletedBtn" class="action-btn clear-completed" style="display: none;">
+                Clear Completed (<span id="completedCountBtn">0</span>)
+            </button>
+            <button id="clearAllBtn" class="action-btn clear-all">
+                Clear All Tasks
+            </button>
+        </div>
+
+        <div class="storage-info">
+            <p><strong>💾 Data Persistence</strong></p>
+            <p>Your tasks are automatically saved to your browser's local storage. They'll be here when you come back!</p>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <input type="text" id="editTaskInput" class="edit-input">
+            <div class="modal-actions">
+                <button id="saveEditBtn" class="modal-btn save-btn">
+                    <i class="fas fa-check"></i>
+                </button>
+                <button id="cancelEditBtn" class="modal-btn cancel-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

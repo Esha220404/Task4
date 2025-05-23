@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSmart - Product Catalog</title>
+      <link rel="stylesheet" href="style2.css">
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">ShopSmart</a>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li>
+                        <a href="#" class="cart-icon">
+                            🛒
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero">
+                <h1>Discover Amazing Products</h1>
+                <p>Browse our collection of high-quality products. Use filters to find exactly what you're looking for!</p>
+            </div>
+
+            <!-- Filter and Sort Section -->
+            <div class="filter-sort-section">
+                <div class="filter-sort-controls">
+                    <div class="filter-group">
+                        <!-- Category Filter -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-btn" id="categoryBtn">
+                                Categories
+                                <span>▼</span>
+                            </button>
+                            <div class="dropdown-content" id="categoryDropdown">
+                                <div class="category-options">
+                                    <div>
+                                        <input type="checkbox" id="electronics" class="category-checkbox" value="electronics">
+                                        <label for="electronics">Electronics</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="clothing" class="category-checkbox" value="clothing">
+                                        <label for="clothing">Clothing</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="home" class="category-checkbox" value="home">
+                                        <label for="home">Home & Kitchen</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="beauty" class="category-checkbox" value="beauty">
+                                        <label for="beauty">Beauty & Personal Care</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="sports" class="category-checkbox" value="sports">
+                                        <label for="sports">Sports & Outdoors</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Filter -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-btn" id="priceBtn">
+                                Price Range
+                                <span>▼</span>
+                            </button>
+                            <div class="dropdown-content" id="priceDropdown">
+                                <div class="price-range">
+                                    <input type="range" id="priceSlider" min="0" max="1000" step="10" value="1000" class="price-slider">
+                                    <div class="price-inputs">
+                                        <input type="number" id="minPrice" min="0" value="0" placeholder="Min">
+                                        <span>to</span>
+                                        <input type="number" id="maxPrice" min="0" value="1000" placeholder="Max">
+                                    </div>
+                                    <button class="apply-price" id="applyPriceFilter">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rating Filter -->
+                        <div class="filter-dropdown">
+                            <button class="dropdown-btn" id="ratingBtn">
+                                Rating
+                                <span>▼</span>
+                            </button>
+                            <div class="dropdown-content" id="ratingDropdown">
+                                <div class="category-options">
+                                    <div>
+                                        <input type="radio" name="rating" id="rating4" class="rating-radio" value="4">
+                                        <label for="rating4">4★ & above</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="rating" id="rating3" class="rating-radio" value="3">
+                                        <label for="rating3">3★ & above</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="rating" id="rating2" class="rating-radio" value="2">
+                                        <label for="rating2">2★ & above</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="rating" id="ratingAll" class="rating-radio" value="0" checked>
+                                        <label for="ratingAll">All Ratings</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sort Dropdown -->
+                    <div class="sort-dropdown">
+                        <button class="dropdown-btn" id="sortBtn">
+                            Sort By: <span id="currentSort">Featured</span>
+                            <span>▼</span>
+                        </button>
+                        <div class="dropdown-content" id="sortDropdown">
+                            <div class="sort-options">
+                                <div class="sort-option active" data-sort="featured">Featured</div>
+                                <div class="sort-option" data-sort="priceAsc">Price: Low to High</div>
+                                <div class="sort-option" data-sort="priceDesc">Price: High to Low</div>
+                                <div class="sort-option" data-sort="ratingDesc">Customer Rating</div>
+                                <div class="sort-option" data-sort="newest">Newest Arrivals</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Filters Section -->
+                <div class="active-filters" id="activeFilters">
+                    <!-- Active filters will be added here dynamically -->
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be added here dynamically -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading products...</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be added here dynamically -->
+            </div>
+        </div>
+    </main>
+<script src="script2.js"></script>
+</body>
+</html>
